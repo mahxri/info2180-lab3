@@ -14,5 +14,13 @@ document.addEventListener("DOMContentLoaded", function () {
             squares[i].classList.add(currentPlayer);
             currentPlayer = currentPlayer === "X" ? "O" : "X";
         });
+
+        squares[i].addEventListener("mouseover", function () {
+            squares[i].classList.add("hover");
+        });
+
+        squares[i].addEventListener("mouseout", function () {
+            squares[i].classList.remove("hover");           
+        });
     }
 });
