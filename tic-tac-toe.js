@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
         squares[i].classList.add("square");
 
         squares[i].addEventListener("click", function () {
-            if (gameOver) {
-                return;
+            if (gameOver || gameState[i] !== "") {
+            return;
             }
             gameState[i] = currentPlayer;
             squares[i].textContent = currentPlayer;
