@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const board = document.getElementById("board");
     const squares = board.getElementsByTagName("div");
     const status = document.getElementById("status");
+    const newGameButton = document.querySelector(".btn");
+    const originalMessage = status.textContent;
 
     const winningLines = [
         [0, 1, 2],
@@ -55,4 +57,16 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
+
+    newGameButton.addEventListener("click", function () {
+        gameState = Array(9).fill("");
+        currentPlayer = "X";
+        gameOver = false;
+        for (let i = 0; i < squares.length; i++) {
+            squares[i].textContent = "";
+            squares[i].classList.remove("X", "O", "hover");
+        }
+        status.textContent = originalMessage;
+        status.classList.remove("you-won");
+    });
 });
